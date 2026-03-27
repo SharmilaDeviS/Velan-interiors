@@ -1,0 +1,72 @@
+/* Container padding and rounded corners */
+.dialog-container {
+  padding: 10px;
+}
+
+/* Header: Pushes Title to Left and Button to Right */
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.dialog-header h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+/* Close Button Styling */
+.close-btn {
+  background-color: #f0f0f0; /* Light grey circle from your image */
+  border-radius: 50%;
+}
+
+/* Force Form Fields to occupy 100% of the popup width */
+.full-width {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Full Width Toggle Group */
+.full-width-toggle {
+  width: 100%;
+  display: flex;
+}
+
+.full-width-toggle mat-button-toggle {
+  flex: 1; /* Makes all buttons equal width */
+  text-align: center;
+}
+
+/* Pill-shaped Button like your image */
+.submit-pill-btn {
+  border-radius: 50px !important;
+  border: 1px solid #e0e0e0 !important;
+  color: #1254df !important;
+  padding: 0 40px !important;
+  height: 45px;
+  font-weight: 600;
+}
+
+.footer-links {
+  font-size: 12px;
+  color: #666;
+  margin-top: 15px;
+  text-align: center;
+}
+
+/* Label Styling */
+.field-group label {
+  display: block;
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 5px;
+}

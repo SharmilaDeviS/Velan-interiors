@@ -1,0 +1,70 @@
+<div class="dialog-container">
+  <div class="dialog-header">
+    <h2 mat-dialog-title>Get a <strong>free design consultation</strong></h2>
+    <button mat-icon-button mat-dialog-close class="close-btn">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <form [formGroup]="consultationForm">
+    <mat-dialog-content>
+      <div class="form-wrapper">
+        <div class="field-group">
+          <label>Property type</label>
+          <mat-button-toggle-group class="full-width-toggle" formControlName="propertyType">
+            <mat-button-toggle value="1BHK">1 BHK</mat-button-toggle>
+            <mat-button-toggle value="2BHK">2 BHK</mat-button-toggle>
+            <mat-button-toggle value="3BHK">3 BHK</mat-button-toggle>
+            <mat-button-toggle value="3+BHK">3+ BHK / Duplex</mat-button-toggle>
+          </mat-button-toggle-group>
+          
+          @if(consultationForm.get('propertyType')?.value){
+            <div class="smart-note">
+              <mat-icon inline>home</mat-icon>
+              <span>We've got smart designs for your {{consultationForm.get('propertyType')?.value}} home</span>
+            </div>
+          }
+        </div>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" placeholder="Name">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Property Location</mat-label>
+          <mat-select formControlName="location">
+            @for(district of districts; track district){
+              <mat-option [value]="district">{{district}}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Mobile Number</mat-label>
+          <span matPrefix>&nbsp; +91 &nbsp;</span>
+          <input matInput type="tel" maxlength="10" formControlName="phone"
+            placeholder="Enter 10 digit number"
+            (keypress)="onlyNumbers($event)"
+            (input)="onInputChange($event)">
+          <mat-icon matSuffix>phone</mat-icon>
+        </mat-form-field>
+
+        <mat-checkbox color="primary" class="full-width" formControlName="whatsappConsent">
+          Yes, send me updates via WhatsApp.
+        </mat-checkbox>
+      </div>
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="center">
+      <button mat-stroked-button class="submit-pill-btn" 
+              [disabled]="consultationForm.invalid" 
+              (click)="sendToWhatsApp()">
+        Book a Free Consultation
+      </button>
+      <p class="footer-links">
+        By submitting, you consent to <a href="#">privacy policy</a> and <a href="#">terms of use</a>
+      </p>
+    </mat-dialog-actions>
+  </form>
+</div>
