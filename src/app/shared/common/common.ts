@@ -41,6 +41,8 @@ export class Common {
   consultationForm: FormGroup;
   private _snackBar = inject(MatSnackBar);
   private apiUrl = 'https://sharmi-backend-hub.onrender.com';  // api url for production
+  isLoading = false;
+
   constructor(
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<Common>,
@@ -70,7 +72,7 @@ export class Common {
     if (this.consultationForm.valid) {
       const data = this.consultationForm.value;
       console.log('data..', data);
-
+      this.isLoading = true;
       if (data.whatsappConsent) {
         // WhatsApp flow
         const message = `*New Lead from Velan Website*%0A` +
@@ -83,6 +85,7 @@ export class Common {
 
         const url = `https://wa.me/${this.ownerWhatsApp}?text=${message}`;
         window.open(url, '_blank');
+        this.isLoading = false;
         this.dialogRef.close();
 
       } else {
@@ -90,12 +93,12 @@ export class Common {
         // http://localhost:3000/velan-contact
         this.http.post(this.apiUrl + '/velan-contact', data).subscribe(
           res => {
-            console.log('Email sent successfully', res);
+            this.isLoading = false;
             this.openSnackBar('Message sent successfully!', 'Close');
             this.dialogRef.close();
           },
           err => {
-            console.error('Error sending email', err)
+            this.isLoading = false;
             this.openSnackBar('Error sending message. Please try again.', 'Close');
           }
 

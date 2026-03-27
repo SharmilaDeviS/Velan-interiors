@@ -57,10 +57,17 @@
     </mat-dialog-content>
 
     <mat-dialog-actions align="center">
-      <button mat-stroked-button class="submit-pill-btn" 
-              [disabled]="consultationForm.invalid" 
-              (click)="sendToWhatsApp()">
-        Book a Free Consultation
+      <button mat-stroked-button class="submit-pill-btn" [disabled]="consultationForm.invalid || isLoading"
+        (click)="sendToWhatsApp()">
+    
+        @if (!isLoading) {
+        <span>Book a Free Consultation</span>
+        } @else {
+        <div class="loader-container">
+          <mat-spinner diameter="24"></mat-spinner>
+          <span>Sending...</span>
+        </div>
+        }
       </button>
       <p class="footer-links">
         By submitting, you consent to <a href="#">privacy policy</a> and <a href="#">terms of use</a>
