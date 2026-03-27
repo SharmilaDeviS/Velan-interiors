@@ -1,72 +1,179 @@
-/* Container padding and rounded corners */
+/* 1. Main Container */
 .dialog-container {
-  padding: 10px;
+  padding: 15px;
+  background-color: #ffffff;
 }
 
-/* Header: Pushes Title to Left and Button to Right */
+/* 2. Header & Typography */
 .dialog-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
+}
+
+/* Set all font colors to your deep green */
+.dialog-header h2, 
+.field-group label, 
+.footer-links,
+.smart-note span {
+  color: #2d4739 !important;
 }
 
 .dialog-header h2 {
   margin: 0;
   font-size: 22px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
-/* Close Button Styling */
-.close-btn {
-  background-color: #f0f0f0; /* Light grey circle from your image */
-  border-radius: 50%;
+/* 3. Form Field & Placeholder Styling */
+/* This targets the labels and floating placeholders */
+::ng-deep .mat-mdc-form-field-label,
+::ng-deep .mat-mdc-text-field-wrapper .mat-mdc-form-field-input-control::placeholder,
+::ng-deep .mat-mdc-select-placeholder,
+::ng-deep .mat-mdc-select-value-text,
+::ng-deep .mat-mdc-form-field-prefix,
+::ng-deep .mat-mdc-form-field-suffix mat-icon {
+  color: #2d4739 !important;
 }
 
-/* Force Form Fields to occupy 100% of the popup width */
+/* Targets the actual typed text color */
+::ng-deep .mat-mdc-text-field-wrapper input {
+  color: #2d4739 !important;
+}
+
+/* Change the outline/border color to match the theme slightly */
+::ng-deep .mdc-notched-outline__leading,
+::ng-deep .mdc-notched-outline__notch,
+::ng-deep .mdc-notched-outline__trailing {
+  border-color: rgba(45, 71, 57, 0.3) !important;
+}
+
+/* 4. Layout Elements */
 .full-width {
   width: 100%;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
 .form-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 2px;
 }
 
-/* Full Width Toggle Group */
+/* 5. Button Toggle Group (Property Type) */
 .full-width-toggle {
   width: 100%;
   display: flex;
+  border: 1px solid rgba(45, 71, 57, 0.2);
 }
 
 .full-width-toggle mat-button-toggle {
-  flex: 1; /* Makes all buttons equal width */
+  flex: 1;
   text-align: center;
+  color: #2d4739 !important;
 }
 
-/* Pill-shaped Button like your image */
+/* Selected state for the toggle */
+::ng-deep .mat-button-toggle-checked {
+  background-color: #81c5a1 !important;
+  color: white !important;
+}
+
+/* 6. Gold Submit Button */
 .submit-pill-btn {
   border-radius: 50px !important;
-  border: 1px solid #e0e0e0 !important;
-  color: #1254df !important;
+  background-color: #fac976f5 !important; /* Your requested gold color */
+  color: #2d4739 !important; /* Green text for contrast */
+  border: none !important;
   padding: 0 40px !important;
-  height: 45px;
-  font-weight: 600;
+  height: 48px;
+  font-weight: 700;
+  width: 100%; /* Makes it easier to click on mobile */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
+.submit-pill-btn:disabled {
+  background-color: #fcebc9 !important;
+  opacity: 0.7;
+}
+
+/* 7. Footer & Extras */
 .footer-links {
-  font-size: 12px;
-  color: #666;
+  font-size: 11px;
   margin-top: 15px;
   text-align: center;
+  opacity: 0.8;
 }
 
-/* Label Styling */
-.field-group label {
-  display: block;
-  font-size: 13px;
-  color: #777;
-  margin-bottom: 5px;
+.close-btn {
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  color: #2d4739;
+}
+
+/* Checkbox Color */
+::ng-deep .mat-mdc-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background {
+  background-color: #2d4739 !important;
+  border-color: #2d4739 !important;
+}
+ :host ::ng-deep .mat-button-toggle-standalone.mat-button-toggle-appearance-standard, .mat-button-toggle-group-appearance-standard {
+    border-radius: 0px !important;
+    border: solid 1px var(--mat-button-toggle-divider-color, var(--mat-sys-outline));
+    height: 50px;
+}
+:host ::ng-deep .mat-button-toggle-standalone:not([class*=mat-elevation-z]), .mat-button-toggle-group:not([class*=mat-elevation-z]) {
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+}
+:host ::ng-deep .mdc-text-field--outlined .mdc-notched-outline {
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+}
+/* Mobile Responsiveness Fix */
+@media (max-width: 600px) {
+  /* 1. Ensure the container takes up more width but stays centered */
+  .dialog-container {
+    padding: 15px !important;
+    max-width: 100vw !important;
+    margin: 0 !important;
+  }
+
+  /* 2. Adjust Header for small screens */
+  .dialog-header h2 {
+    font-size: 18px !important; /* Smaller text so it doesn't wrap weirdly */
+    max-width: 80%;
+  }
+
+  .full-width-toggle mat-button-toggle {
+    border: 1px solid rgba(45, 71, 57, 0.2) !important;
+    border-radius: 4px !important;
+  }
+
+  /* 4. Fix padding inside the dialog content */
+  ::ng-deep .mat-mdc-dialog-content {
+    padding: 10px 0 !important;
+    max-height: 70vh !important; /* Prevents the dialog from going off-screen */
+  }
+
+  /* 5. Adjust the Button */
+  .submit-pill-btn {
+    width: 100% !important;
+    font-size: 14px !important;
+    padding: 0 20px !important;
+  }
+  :host ::ng-deep .mat-mdc-text-field-wrapper {
+    width: 90%;
+    margin-left: 14px;
+  }
+  :host ::ng-deep .mat-button-toggle-standalone:not([class*=mat-elevation-z]), .mat-button-toggle-group[_ngcontent-ng-c3669742143]:not([class*=mat-elevation-z]) {
+    width: 90%;
+    margin-left: 14px;
+   }
+   label {
+    margin-left: 14px !important;
+   }
+}
+@media (max-width: 400px) {
+  .dialog-header h2 {
+        font-size: 16px !important;
+  }
 }

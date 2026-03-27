@@ -51,7 +51,7 @@ export class Common {
       name: ['', Validators.required],
       location: ['', Validators.required],
       phone: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
-      whatsappConsent: [true]
+      whatsappConsent: [false]
     });
   }
 

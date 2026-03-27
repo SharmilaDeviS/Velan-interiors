@@ -6,16 +6,16 @@
     </button>
   </div>
 
-  <form [formGroup]="consultationForm">
+  <form [formGroup]="consultationForm" style="border: 5px solid #2d4739;">
     <mat-dialog-content>
       <div class="form-wrapper">
-        <div class="field-group">
+        <div class="field-group" style="margin-bottom: 25px;">
           <label>Property type</label>
           <mat-button-toggle-group class="full-width-toggle" formControlName="propertyType">
             <mat-button-toggle value="1BHK">1 BHK</mat-button-toggle>
             <mat-button-toggle value="2BHK">2 BHK</mat-button-toggle>
             <mat-button-toggle value="3BHK">3 BHK</mat-button-toggle>
-            <mat-button-toggle value="3+BHK">3+ BHK / Duplex</mat-button-toggle>
+            <mat-button-toggle value="3+BHK">3+ BHK</mat-button-toggle>
           </mat-button-toggle-group>
           
           @if(consultationForm.get('propertyType')?.value){

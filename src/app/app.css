@@ -848,6 +848,13 @@
     color: #ffffff; /* Match your header text color */
     transition: color 0.3s ease;
 }
+:host ::ng-deep .mat-mdc-raised-button:not(:disabled) {
+    /* color: var(--mat-button-protected-label-text-color, var(--mat-sys-primary)); */
+    /* background-color: var(--mat-button-protected-container-color, var(--mat-sys-surface)); */
+    background-color: #fac976f5;
+    color: #2d4739;
+}
+
 /* ----Responsive fix for mobile----- */
 @media (max-width: 992px) {
    .menu-toggle {
