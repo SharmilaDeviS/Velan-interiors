@@ -29,7 +29,7 @@
 .hero-section {
     position: relative;
     height: 400px;
-    background: url("/home.png") no-repeat center center/cover;
+    background: url("home.png") no-repeat center center/cover;
 }
 
 .hero-section::before {
