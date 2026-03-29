@@ -1,6 +1,6 @@
 <div class="dialog-container">
   <div class="dialog-header">
-    <h2 mat-dialog-title>Get a <strong>free design consultation</strong></h2>
+    <h2 mat-dialog-title>Get a <strong>free design consultation </strong> <img src="logo1.png" alt="Velan Logo" style="width: 30px; margin: -4px 0px"></h2>
     <button mat-icon-button mat-dialog-close class="close-btn">
       <mat-icon>close</mat-icon>
     </button>
@@ -61,7 +61,9 @@
         (click)="sendToWhatsApp()">
     
         @if (!isLoading) {
-        <span>Book a Free Consultation</span>
+        <span>Book a Free Consultation
+        <img src="logo1.png" alt="Velan Logo" style="width: 30px; margin: -7px 0px">
+        </span>
         } @else {
         <div class="loader-container">
           <mat-spinner diameter="24"></mat-spinner>
