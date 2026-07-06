@@ -261,7 +261,7 @@
 
 .services-image {
     width: 50% !important;
-    height: 390px;
+    height: 900px;
 }
 
 .services-image img {
@@ -274,20 +274,22 @@
     /* Gives text area slightly more room */
 }
 
-.services-text .subtitle {
+.services .subtitle {
     font-size: 18px;
     color: #1254df;
     letter-spacing: 1.5px;
     margin-bottom: 0px;
     margin-top: 40px;
+    text-align: center;
 }
 
-.services-text .title {
+.services .title {
     font-size: 48px;
     font-family: 'serif';
     /* Match the elegant look of the screenshot */
     color: #1a2b3c;
     margin-bottom: 25px;
+    text-align: center;
 }
 
 .services-text .main-desc {
@@ -959,7 +961,7 @@ h2{
 
     .services-grid {
         grid-template-columns: 1fr;
-        /* Stack columns on small screens */
+        margin-top: 70%;
     }
 
     .types-services-grid {
